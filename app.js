@@ -330,6 +330,11 @@ import errorMiddleware from './middlewares/error.middleware.js';
 import fs from "fs/promises"; // Using fs promises API
 import { Server as SocketServer } from 'socket.io';
 import path from "path";
+import { config } from "dotenv";
+config({
+    path: "./.env"
+})
+
 import chokidar from "chokidar";
 // import pty from "node-pty";
 import cors from "cors";
@@ -346,6 +351,7 @@ const server = http.createServer(app);
 const io = new SocketServer({
     cors: '*'
 });
+console.log(process.env.CLIENT_URL)
 app.use(cors({
     origin: process.env.CLIENT_URL,
     credentials: true
