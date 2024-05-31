@@ -444,6 +444,11 @@ app.use(express.urlencoded({ // To make understand express the encoded url
 }))
 app.use(express.static("public")) // To store any public assests in server (Temp
 
+app.get("/", (req, res) => {
+    res.status(200).json({
+        message: "Hello from Server"
+    })
+})
 
 import userRoutes from './routes/userRoutes.js';
 import courseRoutes from './routes/courseRoutes.js';
